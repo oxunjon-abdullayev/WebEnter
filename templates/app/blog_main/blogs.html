@@ -1,0 +1,172 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from validthemes.live/themeforest/avrix/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Aug 2023 07:05:44 GMT -->
+<head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Avrix - Digital Agency Portfolio Template">
+
+    <!-- ========== Page Title ========== -->
+    <title>{% block title %} {% endblock title %}</title>
+
+    <!-- ========== Favicon Icon ========== -->
+    <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}" type="image/x-icon">
+
+    <!-- ========== Start Stylesheet ========== -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/magnific-popup.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/flaticon-set.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/validnavs.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/helper.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/unit-test.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <!-- ========== End Stylesheet ========== -->
+
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+</head>
+
+<body class="bg-dark">
+
+
+    <!-- Start Preloader
+    ============================================= -->
+    {% include 'app/main/preloader.html' %}
+    <!-- End Preloader -->
+
+    <!-- Header
+    ============================================= -->
+    {% include 'app/main/header.html' %}
+    <!-- End Header -->
+
+      {% block content %}
+
+    <div class="breadcrumb-area bg-gray">
+        <div class="container">
+            <div class="breadcrumb-item">
+                <div class="breadcrum-shape">
+                    <img src="{% static 'assets/img/shape/bg-shape-3.png' %}" alt="shape">
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-1">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                                <li class="active">Blog</li>
+                            </ol>
+                        </nav>
+                        <h1>Blog Standard</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+
+    <!-- Start Blog
+    ============================================= -->
+    <div class="blog-area full-blog blog-standard default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="blog-content col-xl-10 offset-xl-1 col-md-12">
+                    <div class="blog-item-box">
+                        <!-- Single Item -->
+                          {% for blog in blogs %}
+                        <div class="blog-style-one item">
+                            <div class="thumb">
+                                <a href="{% url 'blog-detail' blog.id %}"><img src="{{ blog.image.url }}" alt="Image Not Found"></a>
+                            </div>
+                            <div class="info">
+                                <div class="meta">
+                                    <ul>
+
+                                        <li>
+                                            {{ blog.create_at }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h2>
+                                    <a href="{% url 'blog-detail' blog.id %}">{{ blog.title }}</a>
+                                </h2>
+                                <p>
+                                    {{ blog.description }}
+                                </p>
+                                <a href="{% url 'blog-detail' blog.id %}" class="button-regular">
+                                    Continue Reading <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Single Item -->
+                           {% endfor %}
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="row">
+                        <div class="col-md-12 pagi-area text-center">
+                            <nav aria-label="navigation">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="blog-with-sidebar.html"><i class="fas fa-angle-left"></i></a></li>
+                                    <li class="page-item active"><a class="page-link" href="blog-with-sidebar.html">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="blog-with-sidebar.html">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="blog-with-sidebar.html">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="blog-with-sidebar.html"><i class="fas fa-angle-right"></i></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+      {% endblock content %}
+
+    <!-- Start Footer
+    ============================================= -->
+    {% include 'app/main/footer.html' %}
+    <!-- End Footer -->
+
+    <!-- jQuery Frameworks
+    ============================================= -->
+    <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.appear.js' %}"></script>
+    <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/progress-bar.min.js' %}"></script>
+    <script src="{% static 'assets/js/circle-progress.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/count-to.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.scrolla.min.js' %}"></script>
+    <script src="{% static 'assets/js/ScrollOnReveal.js' %}"></script>
+    <script src="{% static 'assets/js/YTPlayer.min.js' %}"></script>
+    <script src="{% static 'assets/js/validnavs.js' %}"></script>
+    <script src="{% static 'assets/js/gsap.js' %}"></script>
+    <script src="{% static 'assets/js/ScrollTrigger.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+<!-- Mirrored from validthemes.live/themeforest/avrix/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Aug 2023 07:06:15 GMT -->
+</html>
+
+
+
+
+
+
+
+
