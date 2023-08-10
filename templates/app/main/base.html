@@ -31,7 +31,8 @@
     <!-- ========== End Stylesheet ========== -->
 
     <!--[if lte IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
+            href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
 
 </head>
@@ -39,29 +40,30 @@
 <body class="bg-dark">
 
 
-    <!-- Start Preloader
-    ============================================= -->
-    {% include 'app/main/preloader.html' %}
-    <!-- End Preloader -->
+<!-- Start Preloader
+============================================= -->
+{% include 'app/main/preloader.html' %}
+<!-- End Preloader -->
 
-    <!-- Header
-    ============================================= -->
-    {% include 'app/main/header.html' %}
-    <!-- End Header -->
+<!-- Header
+============================================= -->
+{% include 'app/main/header.html' %}
+<!-- End Header -->
 
-      {% block content %}
+{% block content %}
 
-{#          index#}
+    {#          index#}
 
-      {% endblock content %}
-    
-    <!-- Start Footer
-    ============================================= -->
-    {% include 'app/main/footer.html' %}
-    <!-- End Footer -->
+{% endblock content %}
 
-    <!-- jQuery Frameworks
-    ============================================= -->
+<!-- Start Footer
+============================================= -->
+{% include 'app/main/footer.html' %}
+<!-- End Footer -->
+
+<!-- jQuery Frameworks
+============================================= -->
+{% if request.resolver_match.url_name == 'index'%}
     <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'assets/js/jquery.appear.js' %}"></script>
@@ -79,6 +81,28 @@
     <script src="{% static 'assets/js/gsap.js' %}"></script>
     <script src="{% static 'assets/js/ScrollTrigger.min.js' %}"></script>
     <script src="{% static 'assets/js/main.js' %}"></script>
+{% elif request.resolver_match.url_name == 'portfolio' %}
+    <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.appear.js' %}"></script>
+    <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/progress-bar.min.js' %}"></script>
+    <script src="{% static 'assets/js/circle-progress.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/count-to.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.scrolla.min.js' %}"></script>
+    <script src="{% static 'assets/js/ScrollOnReveal.js' %}"></script>
+    <script src="{% static 'assets/js/YTPlayer.min.js' %}"></script>
+    <script src="{% static 'assets/js/validnavs.js' %}"></script>
+    <script src="{% static 'assets/js/gsap.js' %}"></script>
+    <script src="{% static 'assets/js/ScrollTrigger.min.js' %}"></script>
+    <script src="{% static 'assets/js/horizontal-accordion-init.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+{% endif %}
+
 
 </body>
 
